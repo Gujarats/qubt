@@ -7,7 +7,7 @@
 {{ $prefix := (cond (hugo.IsProduction) "/blog/" "") }}
 {{/* Site title */}}
 {{ $title := .Site.Title | default "Qubt Theme" }}
-<title>{{ $title }}</title>
+<title>{{ .Title }}</title>
 <meta name="title" content="{{ $title }}" />
 
 {{/* Creator tag */}}
