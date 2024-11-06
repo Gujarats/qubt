@@ -5,33 +5,69 @@
   {{ $DPT := printf "%s - %d minute read" $date .ReadingTime }}
 
 
-
-  <div class="justify-evenly mx-auto mt-8 flex max-w-screen-md px-4">
-    <article>
-      <h1 class="text-4xl font-extrabold text-slate-700 dark:text-slate-200">
-        {{ .Title | emojify }}
-      </h1>
-      <h2 class="mt-4 text-2xl text-slate-500 dark:text-slate-400">
-        {{ .Params.subtitle | emojify }}
-      </h2>
-      <div class="mb-4 mt-2 text-sm text-slate-500 dark:text-slate-400">
-        {{ $DPT }}
+  <!-- Body -->
+  <div class="max-w-8xl mx-auto justify-evenly px-4 sm:px-6 md:px-8">
+    <!-- Nav Left -->
+    <div class="fixed inset-0 left-[max(0px,calc(50%-45rem))] right-auto top-[3.8125rem] z-20 hidden w-[19rem] overflow-y-auto pb-10 pl-8 pr-6 lg:block">
+      <div class="py-5">
+        {{ partial "toc" . }}
       </div>
+    </div>
+    <!-- Content -->
+    <div class="lg:pl-[19.5rem]">
+      <!-- empty div to make layout works -->
+      <div class="mx-auto max-w-3xl pt-10 xl:ml-0 xl:mr-[15.5rem] xl:max-w-none xl:pr-16">
+        <!-- Main Content MD Files -->
+        <div class="dark:prose-dark prose prose-slate relative z-20 mt-8">
+          <!-- MD files content -->
+          <article>
+            <h1 class="text-4xl font-extrabold text-slate-700 dark:text-slate-200">
+              {{ .Title | emojify }}
+            </h1>
+            <h2 class="mt-4 text-2xl text-slate-500 dark:text-slate-400">
+              {{ .Params.subtitle | emojify }}
+            </h2>
+            <div class="mb-4 mt-2 text-sm text-slate-500 dark:text-slate-400">
+              {{ $DPT }}
+            </div>
 
-      {{ with $featureimage }}
-        {{ $featureimage = $featureimage.Filter (images.Process "resize 736x Lanczos q100 webp" ) }}
-        <div class="flex flex-col">
-          <img class="mt-4 h-full w-full object-cover" src="{{ $featureimage.RelPermalink }}" alt="feature image" height="{{ $featureimage.Height }}" width="{{ $featureimage.Width }}" />
-          {{ with $featuredcaption }}
-            <span class="mb-4 mt-1 text-center text-sm text-slate-700 dark:text-slate-200">
-              {{ $featuredcaption | emojify }}
+            {{ with $featureimage }}
+              {{ $featureimage = $featureimage.Filter (images.Process "resize 736x Lanczos q100 webp" ) }}
+              <div class="flex flex-col">
+                <img class="mt-4 h-full w-full object-cover" src="{{ $featureimage.RelPermalink }}" alt="feature image" height="{{ $featureimage.Height }}" width="{{ $featureimage.Width }}" />
+                {{ with $featuredcaption }}
+                  <span class="mb-4 mt-1 text-center text-sm text-slate-700 dark:text-slate-200">
+                    {{ $featuredcaption | emojify }}
+                  </span>
+                {{ end }}
+              </div>
+            {{ end }}
+            <span class="prose prose-slate break-words text-lg text-slate-700 dark:prose-invert prose-pre:max-w-[90vw] dark:text-slate-200 md:prose-pre:max-w-screen-md">
+              {{ .Content }}
             </span>
-          {{ end }}
+          </article>
         </div>
-      {{ end }}
-      <span class="prose prose-slate break-words text-lg text-slate-700 dark:prose-invert prose-pre:max-w-[90vw] md:prose-pre:max-w-screen-md dark:text-slate-200">
-        {{ .Content }}
-      </span>
-    </article>
+        <!-- Nav Right -->
+        <div class="invisible fixed bottom-0 right-[max(0px,calc(50%-45rem))] top-[3.8125rem] z-20 hidden w-[19.5rem] overflow-y-auto py-10 xl:block">
+          <div class="px-8">
+            <div class="bg-pink-500 py-5">
+              <h1>Content Head Nav Right</h1>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur id sem tellus. Nulla fac</p>
+            </div>
+          </div>
+          <div class="mt-8 overflow-hidden">
+            <div class="p-8">
+              <div class="relative -m-6 block rounded-lg p-6 pt-80 focus:bg-slate-50 focus:outline-none dark:focus:bg-slate-800/25">
+                <div class="bg-pink-300 py-5">
+                  <h1>Content body Nav Right</h1>
+                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur id sem tellus. Nulla facilisi. Praesent id commodo justo. Nullam vestibulum dolor a placerat dapibus.`</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
+  <div class="mx-auto mt-8 flex max-w-screen-md justify-evenly px-4"></div>
 {{ end }}
