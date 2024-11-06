@@ -8,11 +8,7 @@
   <!-- Body -->
   <div class="max-w-8xl mx-auto justify-evenly px-4 sm:px-6 md:px-8">
     <!-- Nav Left -->
-    <div class="invisible fixed inset-0 left-[max(0px,calc(50%-45rem))] right-auto top-[3.8125rem] z-20 hidden w-[19rem] overflow-y-auto pb-10 pl-8 pr-6 lg:block">
-      <div class="py-5">
-        {{ partial "toc" . }}
-      </div>
-    </div>
+    {{ partial "nav_left" . }}
     <!-- Content -->
     <div class="lg:pl-[19.5rem]">
       <!-- empty div to make layout works -->

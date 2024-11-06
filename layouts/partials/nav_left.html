@@ -1,0 +1,8 @@
+<div class="pt-10 fixed inset-0 left-[max(0px,calc(50%-45rem))] right-auto top-[3.8125rem] z-20 hidden w-[19rem] overflow-y-auto pb-10 pl-8 pr-6 lg:block">
+  <div class="mt-5 py-5">
+    <h1 class="mb-2 text-3xl text-slate-500 dark:text-slate-400"> Read Next</h1>
+    {{ range .Site.RegularPages.ByTitle }}
+      <h3 class="font-bold text-lg text-slate-700 dark:text-slate-200 hover:text-slate-500 hover:dark:text-slate-400 text-ellipsis overflow-hidden line-clamp-3"><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
+    {{ end }}
+  </div>
+</div>
