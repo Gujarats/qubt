@@ -8,7 +8,7 @@
   <!-- Body -->
   <div class="max-w-8xl mx-auto justify-evenly px-4 sm:px-6 md:px-8">
     <!-- Nav Left -->
-    <div class="fixed inset-0 left-[max(0px,calc(50%-45rem))] right-auto top-[3.8125rem] z-20 hidden w-[19rem] overflow-y-auto pb-10 pl-8 pr-6 lg:block">
+    <div class="invisible fixed inset-0 left-[max(0px,calc(50%-45rem))] right-auto top-[3.8125rem] z-20 hidden w-[19rem] overflow-y-auto pb-10 pl-8 pr-6 lg:block">
       <div class="py-5">
         {{ partial "toc" . }}
       </div>
@@ -48,23 +48,9 @@
           </article>
         </div>
         <!-- Nav Right -->
-        <div class="invisible fixed bottom-0 right-[max(0px,calc(50%-45rem))] top-[3.8125rem] z-20 hidden w-[19.5rem] overflow-y-auto py-10 xl:block">
-          <div class="px-8">
-            <div class="bg-pink-500 py-5">
-              <h1>Content Head Nav Right</h1>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur id sem tellus. Nulla fac</p>
-            </div>
-          </div>
-          <div class="mt-8 overflow-hidden">
-            <div class="p-8">
-              <div class="relative -m-6 block rounded-lg p-6 pt-80 focus:bg-slate-50 focus:outline-none dark:focus:bg-slate-800/25">
-                <div class="bg-pink-300 py-5">
-                  <h1>Content body Nav Right</h1>
-                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur id sem tellus. Nulla facilisi. Praesent id commodo justo. Nullam vestibulum dolor a placerat dapibus.`</p>
-                </div>
-              </div>
-            </div>
-          </div>
+        <div class="fixed bottom-0 right-[max(0px,calc(50%-45rem))] top-[3.8125rem] z-20 hidden w-[19.5rem] overflow-y-auto py-10 xl:block">
+          {{ partial "toc" . }}
+
         </div>
       </div>
     </div>
