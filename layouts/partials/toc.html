@@ -1,0 +1,33 @@
+{{ $toc := .Params.toc | default false }}
+{{ if $toc }}
+  <div class="px-8">
+    <div class="py-5">
+      <h2 class="mb-2 text-2xl text-slate-500 dark:text-slate-400">Table of Content</h2>
+      <div class="text-lg text-slate-700 dark:text-slate-200">
+        <nav>
+          {{- range .Fragments.Headings }}
+            <ul class="list-inside">
+              {{- range .Headings }}
+                <li class="hover:text-slate-500 hover:dark:text-slate-400"><a href="#{{ anchorize .ID }}">{{ .Title }}</a></li>
+                {{- if .Headings }}
+                  <ul class="list-inside list-disc">
+                    {{- range .Headings }}
+                      <li class="ml-4 hover:text-slate-500 hover:dark:text-slate-400"><a href="#{{ anchorize .ID }}">{{ .Title }}</a></li>
+                      {{- if .Headings }}
+                        <ul class="list-inside list-disc">
+                          {{- range .Headings }}
+                            <li class="ml-8 hover:text-slate-500 hover:dark:text-slate-400"><a href="#{{ anchorize .ID }}">{{ .Title }}</a></li>
+                          {{- end }}
+                        </ul>
+                      {{- end }}
+                    {{- end }}
+                  </ul>
+                {{- end }}
+              {{- end }}
+            </ul>
+          {{- end }}
+        </nav>
+      </div>
+    </div>
+  </div>
+{{ end }}
