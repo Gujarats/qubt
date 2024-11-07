@@ -4,11 +4,6 @@
 
 <section class="mx-auto flex max-w-screen-xl items-center justify-between p-4">
   <a href="{{ .Site.BaseURL }}" class="flex items-center space-x-3">
-    {{ with $logo }}
-      <div class="mx-auto h-[70px] w-[70px] justify-between rounded-full dark:bg-neutral-100">
-        <img class="ml-3 mt-2 h-[50px] w-[50px] fill-black dark:fill-white" src="{{ $logo.RelPermalink }}" alt="Logo" />
-      </div>
-    {{ end }}
     <span class="hidden self-center whitespace-nowrap text-2xl font-semibold text-slate-700 dark:text-slate-400 md:block">
       {{ $title }}
     </span>
