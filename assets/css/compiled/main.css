@@ -2176,6 +2176,10 @@ video {
 }
 
 @media (min-width: 1280px) {
+  .xl\:invisible {
+    visibility: hidden;
+  }
+
   .xl\:ml-0 {
     margin-left: 0px;
   }
